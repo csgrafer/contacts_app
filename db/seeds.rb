@@ -6,7 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-contact4 = Contact.new(first_name: "jackson", last_name: "G")
+FFaker::Name.first_name
+FFaker::Name.last_name
+FFaker::PhoneNumber.phone_number
+FFaker::Internet.email
 
-contact4.save
+50.times do
+  contact1 = Contact.new(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, phone_number: FFaker::PhoneNumber.phone_number, email: FFaker::Internet.email)
+
+  contact1.save
+end
+
+
 
