@@ -18,8 +18,25 @@ class Api::ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(id: params[:input_id], first_name: params[:input_first_name], last_name: params[:input_last_name], phone_number: params[:input_phone_number], email: params[:input_email] )
+    @contact = Contact.new(
+      first_name: "Biff", 
+      last_name: "Brockstone",
+      phone_number: "1234567",
+      email: "biffbrock@gal.com",
+      )
     @contact.save
+    render 'show.json.jbuilder'
+  end
+
+  def update
+    the_id = params[:id]
+    @contact = Contact.find_by(id: the_id)
+    @contact.update(
+      first_name: "Meg", 
+      last_name: "Alosaurus",
+      phone_number: "911911911",
+      email: "notypeee@brainless.com",
+    )
     render 'show.json.jbuilder'
   end
 end
